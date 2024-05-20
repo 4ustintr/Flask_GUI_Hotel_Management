@@ -1,0 +1,50 @@
+{% extends "Base_templates/home.html" %}
+
+{% block title %}Add customer{% endblock %}
+
+{% block content %}
+    
+    <div class="card-body">
+        <form action="{{url_for('addcus')}}" method="POST">
+            <div class="form-group">
+                <label for="id">Mã KH:</label>
+                <div class="input-group">
+                    <input type="text" id="id" class="form-control" placeholder="Input ID" name="id">
+                </div>
+            <div class="form-group">
+                <label for="name">Họ tên:</label>
+                <div class="input-group">
+                    <input type="text" id="name" class="form-control" placeholder="Input Name" name="name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <div class="input-group">
+                    <input type="email" id="email" class="form-control" placeholder="Input Email" name="email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="telp">Số Điện Thoại:</label>
+                <div class="input-group">
+                    <input type="text" id="telp" class="form-control" placeholder="Input Telephone" name="telp">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address">Quốc Gia:</label>
+                <div class="input-group">
+                    <textarea name="country" id="country" class="form-control"  placeholder="Input country" autocomplete="off"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address">Địa chỉ:</label>
+                <div class="input-group">
+                    <textarea name="address" id="address" class="form-control" lass="form-control" placeholder="Input Address" required="required" autocomplete="off"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success btn-sm" name="submit">Save</button>
+                <button type="reset" class="btn btn-danger btn-sm" onclick="window.location.href='{{ url_for('customer') }}'">Cancel</button>
+            </div>
+       </form>
+    </div>
+{% endblock %}

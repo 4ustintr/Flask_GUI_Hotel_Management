@@ -1,0 +1,44 @@
+{% extends "Base_templates/home.html" %}
+
+{% block title %}Add room{% endblock %}
+
+{% block content %}
+    
+    <div class="card-body">
+        <form action="{{url_for("addroom")}}" method="POST">
+            <div class="form-group">
+                <label for="id">Mã Phòng:</label>
+                <div class="input-group">
+                    <input type="text" id="id" class="form-control" placeholder="Input ID" name="id_input">
+                </div>
+            <div class="form-group">
+                <label for="name">Loại Phòng:</label>
+                <div class="input-group">
+                    <input type="text" id="type" class="form-control" placeholder="Input type" name="type_room">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Tình Trạng:</label>
+                <div class="input-group">
+                    <input type="text" id="condition" class="form-control" placeholder="Input condition" name="condition">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="telp">Sức chứa:</label>
+                <div class="input-group">
+                    <input type="text" id="capicity" class="form-control" placeholder="Input capicity" name="capicity">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address">Gía Phòng:</label>
+                <div class="input-group">
+                    <textarea name="cost" id="cost" class="form-control"  placeholder="Input cost" autocomplete="off"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success btn-sm" name="submit">Save</button>
+                <button type="reset" class="btn btn-danger btn-sm" onclick="window.location.href='{{ url_for('room') }}'">Cancel</button>
+            </div>
+       </form>
+    </div>
+{% endblock %}

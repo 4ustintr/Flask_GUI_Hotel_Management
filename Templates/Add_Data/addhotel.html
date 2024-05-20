@@ -1,0 +1,38 @@
+{% extends "Base_templates/home.html" %}
+
+{% block title %}Add Hotel{% endblock %}
+
+{% block content %}
+    
+    <div class="card-body">
+        <form action="{{url_for("addhotel")}}" method="POST">
+            <div class="form-group">
+                <label for="id">Mã Khách sạn:</label>
+                <div class="input-group">
+                    <input type="text" id="id" class="form-control" placeholder="Input ID" name="id">
+                </div>
+            <div class="form-group">
+                <label for="name">Tên Khách Sạn:</label>
+                <div class="input-group">
+                    <input type="text" id="name" class="form-control" placeholder="Input Name" name="name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="telp">Số Điện Thoại:</label>
+                <div class="input-group">
+                    <input type="text" id="telp" class="form-control" placeholder="Input Telephone" name="telp">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address">Địa chỉ:</label>
+                <div class="input-group">
+                    <textarea name="address" id="address" class="form-control" lass="form-control" placeholder="Input Address" required="required" autocomplete="off"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success btn-sm" name="submit">Save</button>
+                <button type="reset" class="btn btn-danger btn-sm" onclick="window.location.href='{{ url_for('hotel') }}'">Cancel</button>
+            </div>
+       </form>
+    </div>
+{% endblock %}

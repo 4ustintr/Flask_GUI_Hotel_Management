@@ -1,0 +1,41 @@
+{% extends "Base_templates/home.html" %}
+
+{% block title %}Edit room{% endblock %}
+
+{% block content %}
+   
+    <div class="card-body">
+        <form action="{{url_for("proseshotel")}}" method="POST">
+        {% for row1 in data %} 
+            <div class="form-group">
+                <label for="id">Mã Khách Sạn:</label>
+                <div class="input-group">
+                    <input type="text" id="id" class="form-control" placeholder="Input ID" name="id" value="{{row1.Ma_KS}}">
+                </div>
+            <div class="form-group">
+                <label for="name">Tên Khách Sạn:</label>
+                <div class="input-group">
+                    <input type="text" id="name" class="form-control" placeholder="Input name" name="name" value="{{row1.Tên_KS}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Số Điện Thoại:</label>
+                <div class="input-group">
+                    <input type="text" id="phone" class="form-control" placeholder="Input phone" name="phone" value="02393565656">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="telp">Địa Chỉ:</label>
+                <div class="input-group">
+                    <input type="text" id="address" class="form-control" placeholder="Input address" name="address" value="{{row1.DIA_CHI}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <button  type="submit" class="btn btn-success btn-sm" name="submit">Save</button>
+                <button type="reset" class="btn btn-danger btn-sm" onclick="window.location.href='{{ url_for('hotel') }}'">Cancel</button>
+            </div>
+        {% endfor %}
+       </form>
+    </div>
+    
+{% endblock %}

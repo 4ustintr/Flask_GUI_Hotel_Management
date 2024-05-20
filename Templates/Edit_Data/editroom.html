@@ -1,0 +1,47 @@
+{% extends "Base_templates/home.html" %}
+
+{% block title %}Edit room{% endblock %}
+
+{% block content %}
+   
+    <div class="card-body">
+        <form action="{{url_for("prosesroom")}}" method="POST">
+        {% for row1 in data %} 
+            <div class="form-group">
+                <label for="id">Mã Phòng:</label>
+                <div class="input-group">
+                    <input type="text" id="id" class="form-control" placeholder="Input ID" name="id_input" value="{{row1.MA_PHONG}}">
+                </div>
+            <div class="form-group">
+                <label for="name">Loại Phòng:</label>
+                <div class="input-group">
+                    <input type="text" id="type" class="form-control" placeholder="Input type" name="type_room" value="{{row1.LOAI_PHONG}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Tình Trạng:</label>
+                <div class="input-group">
+                    <input type="text" id="condition" class="form-control" placeholder="Input condition" name="condition" value="{{row1.TINH_TRANG}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="telp">Sức chứa:</label>
+                <div class="input-group">
+                    <input type="text" id="capicity" class="form-control" placeholder="Input capicity" name="capicity" value="{{row1.SUC_CHUA}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address">Gía Phòng:</label>
+                <div class="input-group">
+                    <input name="cost" id="cost" class="form-control"  placeholder="Input cost" autocomplete="off" value="{{row1.GIA}}"></input>
+                </div>
+            </div>
+            <div class="form-group">
+                <button  type="submit" class="btn btn-success btn-sm" name="submit">Save</button>
+                <button type="reset" class="btn btn-danger btn-sm" onclick="window.location.href='{{ url_for('room') }}'">Cancel</button>
+            </div>
+        {% endfor %}
+       </form>
+    </div>
+    
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "Base_templates/home.html" %}
+
+{% block title %}Room {% endblock %}
+
+{% block content %} 
+<div class="card-body">
+  <h3 style="text-align: center;">Room List</h3>
+  <a class="btn btn-primary" style="margin-bottom: 1.3rem; "href ="{{url_for("addroom")}}">Input Data</a>
+</div>
+<table class="table" >
+  <thead class="thead-light"> 
+    
+      <tr>
+          <th scope="col">Mã Phòng</th>
+          <th scope="col">Loại Phòng</th>
+          <th scope="col">Tình Trạng</th>
+          <th scope="col">Sức Chứa</th>
+          <th scope="col">Gía Phòng</th>
+          <th scope="col">Hành Động</th>
+      </tr>
+  <tbody>
+      {% for row1 in phong %}
+      <tr>
+          <th scope="row">{{row1.MA_PHONG}}</th>
+          <td>{{row1.LOAI_PHONG}}</td>
+          <td>{{row1.TINH_TRANG}}</td>
+          <td>{{row1.SUC_CHUA}}</td>
+          <td>{{row1.GIA}}</td>
+          <td>
+              <a href="/editroom/{{row1.MA_PHONG}}" class="btn btn-warning">Edit</a>
+              <a href="/deleteroom/{{row1.MA_PHONG}}" class="btn btn-danger" >Delete</a>
+          </td>
+      </tr>
+     {% endfor %}
+  </tbody>
+  </thead>
+  </table>
+{% endblock %}

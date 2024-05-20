@@ -1,0 +1,40 @@
+{% extends "Base_templates/home.html" %}
+
+{% block title %} customer {% endblock %}
+
+{% block content %}
+<div class="card-body">
+    <h3 style="text-align: center;">customer List</h3>
+    <a class="btn btn-primary" style="margin-bottom: 1.3rem; "href ="{{url_for("addcus")}}">Input Data</a>
+</div>
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">Mã KH</th>
+            <th scope="col">Tên Khách Hàng</th>
+            <th scope="col">Email</th>
+            <th scope="col">Số Điện Thoại</th>
+            <th scope="col">Quốc gia</th>
+            <th scope="col">Địa Chỉ</th>
+            <th scope="col">Hành Động</th>
+        </tr>
+    <tbody>
+      {% for row1 in khach_hang %}
+    <tr>    
+        
+        <th scope="row">{{row1.MA_KH}}</th>
+        <td>{{row1.HOTEN}}</td>
+        <td>{{row1.Email}}</td>
+        <td>0352306109</td>
+        <td>{{row1.QUOC_GIA}}</td>
+        <td>{{row1.DIA_CHI}}</td>
+        <td>
+            <a href="/editcus/{{row1.MA_KH}}" class="btn btn-warning">Edit</a>
+            <a href="/deletecus/{{row1.MA_KH}}" class="btn btn-danger" >Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+    
+    </tbody>
+    </thead>
+{% endblock %}

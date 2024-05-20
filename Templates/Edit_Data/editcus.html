@@ -1,0 +1,53 @@
+{% extends "Base_templates/home.html" %}
+
+{% block title %}Edit room{% endblock %}
+
+{% block content %}
+   
+    <div class="card-body">
+        <form action="{{url_for('prosescus')}}" method="POST">
+        {% for row1 in data %} 
+            <div class="form-group">
+                <label for="id">Mã Khách hàng:</label>
+                <div class="input-group">
+                    <input type="text" id="id" class="form-control" placeholder="Input ID" name="id" value="{{row1.MA_KH}}">
+                </div>
+            <div class="form-group">
+                <label for="name">Họ Tên:</label>
+                <div class="input-group">
+                    <input type="text" id="type" class="form-control" placeholder="Input type" name="name" value="{{row1.HOTEN}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">email:</label>
+                <div class="input-group">
+                    <input type="text" id="condition" class="form-control" placeholder="Input condition" name="email" value="{{row1.Email}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="telp">SĐT:</label>
+                <div class="input-group">
+                    <input type="text" id="capicity" class="form-control" placeholder="Input capicity" name="phone" value="0352306109">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="country">Quốc Gia:</label>
+                <div class="input-group">
+                    <input name="country" id="country" class="form-control"  placeholder="Input country" autocomplete="off" value="{{row1.QUOC_GIA}}"></input>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address">Địa Chỉ:</label>
+                <div class="input-group">
+                    <input name="address" id="address" class="form-control"  placeholder="Input address" autocomplete="off" value="{{row1.DIA_CHI}}"></input>
+                </div>
+            </div>
+            <div class="form-group">
+                <button  type="submit" class="btn btn-success btn-sm" name="submit">Save</button>
+                <button type="reset" class="btn btn-danger btn-sm" onclick="window.location.href='{{ url_for('customer') }}'">Cancel</button>
+            </div>
+        {% endfor %}
+       </form>
+    </div>
+    
+{% endblock %}

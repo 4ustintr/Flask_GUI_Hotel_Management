@@ -1,0 +1,34 @@
+{% extends "Base_templates/home.html" %}
+
+{% block title %}Hotel{% endblock %}
+
+{% block content %}
+<div class="card-body">
+  <h3 style="text-align: center;">Hotel List</h3>
+  <a class="btn btn-primary" style="margin-bottom: 1.3rem; "href ="{{url_for("addhotel")}}">Input Data</a>
+</div>
+<table class="table">
+  <thead class="thead-light">
+      <tr>
+          <th scope="col">Mã Khách Sạn</th>
+          <th scope="col">Tên Khách Sạn</th>
+          <th scope="col">Số Điện Thoại</th>
+          <th scope="col">Địa Chỉ</th>
+          <th scope="col">Hành động</th>
+      </tr>
+  <tbody>
+    {% for row1 in khach_san %}
+      <tr>
+          <th scope="row">{{row1.Ma_KS}}</th>
+          <td>{{row1.Tên_KS}}</td>
+          <td>02393565656</td>
+          <td>{{row1.DIA_CHI}}</td>
+          <td>
+              <a   href="/edithotel/{{row1.Ma_KS}}"  class="btn btn-warning">Edit</a>
+              <a   href="/deletehotel/{{row1.Ma_KS}}"class="btn btn-danger" >Delete</a>
+          </td>
+      </tr>
+      {% endfor %}
+  </tbody>
+  </thead>
+{% endblock %}
